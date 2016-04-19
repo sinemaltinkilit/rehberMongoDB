@@ -1,0 +1,60 @@
+﻿@model RehberMongoDB.Models.rehberModel
+
+@{
+    ViewBag.Title = "Kayit";
+    
+}
+
+<h2>Kayit</h2>
+@if (ViewBag.Message != null)
+{
+    <div style="border:solid 1px green">
+        @ViewBag.Message
+    </div>
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>rehberModel</legend>
+       
+        <div class="editor-label">
+            @Html.LabelFor(model => model.adi)
+           
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.adi)
+            @Html.ValidationMessageFor(model => model.adi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.soyadi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.soyadi)
+            @Html.ValidationMessageFor(model => model.soyadi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.telNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.telNo)
+            @Html.ValidationMessageFor(model => model.telNo)
+        </div>
+
+        <p>
+            <input type="submit" value="Ekle" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Listele")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

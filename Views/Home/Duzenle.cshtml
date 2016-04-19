@@ -1,0 +1,22 @@
+﻿@model RehberMongoDB.Models.rehberModel
+
+@{
+    ViewBag.Title = "Duzenle";
+}
+
+<h2>Duzenle</h2>
+@using (Html.BeginForm("Duzenle", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <p>Adı </p>
+    @Html.TextBoxFor(a => a.adi)
+    @Html.ValidationMessageFor(model => model.adi)
+    <p>Soyadı</p>
+    @Html.TextBoxFor(a => a.soyadi)
+    @Html.ValidationMessageFor(model => model.soyadi)
+    <p>TelNo</p>
+    @Html.TextBoxFor(a =>a.telNo)
+    @Html.ValidationMessageFor(model => model.telNo)
+    @Html.HiddenFor(a => a.id);
+    <input type="submit" value="Guncelle"/>
+}

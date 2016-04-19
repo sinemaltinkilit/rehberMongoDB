@@ -1,0 +1,31 @@
+﻿@model IEnumerable<RehberMongoDB.Models.rehberModel>
+
+@{
+    ViewBag.Title = "Listele";
+}
+
+<h2>Rehber</h2>
+<br />
+@Html.ActionLink("Yeni Kişi Ekle","Kayit")
+<table>
+    <tr>
+        <td>Adı</td>
+        <td>Soyadi</td>
+        <td>İşlemler</td>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+    <tr>   
+        @Html.HiddenFor(m=>item.id)
+        <td>@item.adi</td>
+        <td>@item.soyadi</td>
+        <td>@item.telNo</td>
+
+        <td>
+            @Html.ActionLink("Sil", "Sil", new { id = item.id }) |
+            @Html.ActionLink("Güncelle", "Duzenle",new { id = item.id })
+        </td>
+    </tr>}
+
+</table>
